@@ -18,7 +18,7 @@ class ReplayController extends Controller
     public function createReplay(CreateReplay $request)
     {
         try{
-            $data = $request->all();
+            $data=$request->validated();
             $replay = $this->replayService->createReplay($data);
             return $this->successResponse('Replay created successfully', $replay,201);
         }catch(\Exception $e){
